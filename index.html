@@ -8,6 +8,7 @@
 <body>
     <!-- -->
     <form action="/upload.php">
+<<<<<<< HEAD
       <div id="dropZone" class="dropConteiner">
         Drop your file on this case...
       </div>
@@ -77,5 +78,16 @@
             }
         }
     </script> -->
+=======
+      <div id="dropZone" class="dropConteiner"
+        ondragenter="dropZoneEnter(event);"
+        ondragover="dropZoneOver(event);"
+        ondragleave="dropZoneLeave();"
+        ondrop="return dropZoneDrop(event)">
+        Drop your file on this case...
+      </div>
+    </form>
+    <script src="/fileloader.js"></script>
+>>>>>>> origin/master
 </body>
 </html>
