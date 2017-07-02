@@ -20,7 +20,7 @@ let fileLoader = {
     e.stopPropagation();
     e.preventDefault();
   },
-  dropZoneOver: (e) => {;
+  dropZoneOver: (e) => {
     e.stopPropagation();
     e.preventDefault();
     dropZone.classList.add('hover');
@@ -39,6 +39,7 @@ let fileLoader = {
       this.dropZone.innerHTML = 'File size - '+file.size;
     }
     this.uploadFile('/upload.php', 'POST', file);
+
     return false;
   },
   uploadFile(url, method, file){
@@ -53,9 +54,9 @@ let fileLoader = {
     var percent = parseInt(event.loaded / event.total * 100);
     dropZone.innerHTML = 'Загрузка: ' + percent + '%';
   },
-
   stateChange(event) {
     if (event.target.readyState == 4) {
+      //Ответ пришел, здесь можно обработать все ответы.
       if (event.target.status == 200) {
           dropZone.innerHTML = 'Загрузка успешно завершена!';
           dropZone.classList.add('success');
@@ -67,4 +68,5 @@ let fileLoader = {
   }
 }
 
+// Аргементы: id блока дропзоны, адрес серверного обработчика, максимальный размер файла.
 fileLoader.init('dropZone', '/upload.php', 100000);
